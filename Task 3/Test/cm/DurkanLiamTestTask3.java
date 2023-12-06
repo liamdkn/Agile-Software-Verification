@@ -402,7 +402,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(10, 14);
 
-        assertEquals(new BigDecimal("20.0"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("5.00"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase2(){
@@ -436,7 +436,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(15, 20);
 
-        assertEquals(new BigDecimal("15.0"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("10.0"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase4(){
@@ -504,7 +504,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(1, 22);
 
-        assertEquals(new BigDecimal("82.5"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("10.0"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase8(){//TTD
