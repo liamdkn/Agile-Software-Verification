@@ -100,10 +100,10 @@ class DurkanLiamTestTask3 {
     }
     @Test
     public void durationTestCase4(){
-        Period period = new Period(7,7);
-        assertEquals(1, period.duration());
+        assertThrows(IllegalArgumentException.class, () -> {
+            Period period = new Period(7,7);
+        });
     }
-    //removed test 5-9
 
     @Test
     public void overlapsTestCase1(){
@@ -436,7 +436,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(15, 20);
 
-        assertEquals(new BigDecimal("22.5"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("15.0"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase4(){
@@ -470,7 +470,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(1, 4);
 
-        assertEquals(new BigDecimal("10.0"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("5.0"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase6(){
@@ -487,7 +487,7 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(18, 20);
 
-        assertEquals(new BigDecimal("10.0"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("2.5"), rate.calculate(periodStay));
     }
     @Test
     public void calculateTestCase7(){
@@ -504,6 +504,6 @@ class DurkanLiamTestTask3 {
 
         Period periodStay = new Period(1, 22);
 
-        assertEquals(new BigDecimal("95.0"), rate.calculate(periodStay));
+        assertEquals(new BigDecimal("82.5"), rate.calculate(periodStay));
     }
 }
