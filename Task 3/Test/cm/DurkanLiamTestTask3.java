@@ -635,5 +635,4 @@ class DurkanLiamTestTask3 {
 
         assertEquals(new BigDecimal("10.0"), rate.calculate(periodStay));
     }
-
 }
