@@ -95,11 +95,13 @@ public class Rate {
         cost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours)))
                 .add(this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        if (this.kind == CarParkKind.VISITOR) {
-            if (cost.compareTo(BigDecimal.TEN) <= 0) return BigDecimal.valueOf(0);
-            else return cost.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(0.50));
+        switch (this.kind) {
+            case VISITOR:
+                if (cost.compareTo(BigDecimal.TEN) <= 0) return BigDecimal.valueOf(0);
+                else return cost.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(0.50));
+            case MANAGEMENT:
+                if (cost.compareTo(BigDecimal.valueOf(5)) > 0) return cost;
         }
-
         return cost;
     }
 
