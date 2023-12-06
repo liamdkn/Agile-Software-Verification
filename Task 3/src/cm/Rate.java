@@ -102,6 +102,8 @@ public class Rate {
             case MANAGEMENT:
                 if (cost.compareTo(BigDecimal.valueOf(5)) > 0) return cost;
                 else return BigDecimal.valueOf(5.0);
+            case STUDENT:
+                if (cost.compareTo(BigDecimal.valueOf(5.5)) > 0) return cost;
         }
         return cost;
     }
