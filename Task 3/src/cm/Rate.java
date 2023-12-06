@@ -110,6 +110,8 @@ public class Rate {
                     cost = cost.add(BigDecimal.valueOf(5.5));
                     return cost.setScale(2);
                 }
+            case STAFF:
+                if(cost.compareTo(BigDecimal.TEN) <= 0) return cost;
         }
         return cost;
     }
