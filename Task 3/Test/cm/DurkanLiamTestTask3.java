@@ -506,4 +506,20 @@ class DurkanLiamTestTask3 {
 
         assertEquals(new BigDecimal("82.5"), rate.calculate(periodStay));
     }
+    @Test
+    public void calculateTestCase8(){
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+
+        normalPeriods.add(new Period(9, 17));
+        reducedPeriods.add(new Period(18, 22));
+
+        Rate rate = new Rate(CarParkKind.VISITOR,
+                BigDecimal.valueOf(5.00),
+                BigDecimal.valueOf(2.50), normalPeriods, reducedPeriods);
+
+        Period periodStay = new Period(10, 12);
+
+        assertEquals(new BigDecimal("0"), rate.calculate(periodStay));
+    }
 }
