@@ -97,6 +97,7 @@ public class Rate {
 
         if (this.kind == CarParkKind.VISITOR) {
             if (cost.compareTo(BigDecimal.TEN) <= 0) return BigDecimal.valueOf(0);
+            else return cost.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(0.50));
         }
 
         return cost;
