@@ -103,7 +103,13 @@ public class Rate {
                 if (cost.compareTo(BigDecimal.valueOf(5)) > 0) return cost;
                 else return BigDecimal.valueOf(5.0);
             case STUDENT:
-                if (cost.compareTo(BigDecimal.valueOf(5.5)) > 0) return cost;
+                if (cost.compareTo(BigDecimal.valueOf(5.5)) <= 0) return cost;
+                else{
+                    cost = cost.subtract(BigDecimal.valueOf(5.5));
+                    cost = cost.multiply(BigDecimal.valueOf(.66));
+                    cost = cost.add(BigDecimal.valueOf(5.5));
+                    return cost.setScale(2);
+                }
         }
         return cost;
     }
