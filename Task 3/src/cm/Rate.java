@@ -101,6 +101,7 @@ public class Rate {
                 else return cost.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(0.50));
             case MANAGEMENT:
                 if (cost.compareTo(BigDecimal.valueOf(5)) > 0) return cost;
+                else return BigDecimal.valueOf(5.0);
         }
         return cost;
     }
