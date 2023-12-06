@@ -90,12 +90,16 @@ public class Rate {
     public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
+        BigDecimal cost;
 
-        System.out.println("Debug - normalRateHours: " + normalRateHours);
-        System.out.println("Debug - reducedRateHours: " + reducedRateHours);
-
-        return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours)))
+        cost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours)))
                 .add(this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+
+        if (this.kind == CarParkKind.VISITOR) {
+            if (cost.compareTo(BigDecimal.TEN) <= 0) return BigDecimal.valueOf(0);
+        }
+
+        return cost;
     }
 
 }
