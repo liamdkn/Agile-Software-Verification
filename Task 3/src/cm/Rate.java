@@ -112,6 +112,7 @@ public class Rate {
                 }
             case STAFF:
                 if(cost.compareTo(BigDecimal.TEN) <= 0) return cost;
+                else return BigDecimal.valueOf(10.0);
         }
         return cost;
     }
